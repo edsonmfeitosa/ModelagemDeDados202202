@@ -44,3 +44,13 @@ create table viagemCarga
 	quantidade int not null,
 	primary key (cod_carga, cod_viagem)
 )
+
+create table viagemPassageiro
+(
+	cod_passageiro int not null references 
+		passageiro (cod_passageiro),
+	cod_viagem int not null references
+		viagem (cod_viagem),
+	data_cadastro datetime not null,
+	primary key (cod_passageiro, cod_viagem)
+)
