@@ -83,3 +83,35 @@ order by cidade asc, nome desc -- desc
 -- Trazer nome de cidade sem repetição
 select DISTINCT CIDADE
 FROM CLIENTE
+
+
+------------------Funções básicas
+-- Max (maior) | Min (menor)| AVG (média)| Sum (Soma)
+-- count (contar)
+select max(valor)
+from Item_Pedido
+
+select min(valor)
+from Item_Compra
+
+select avg(quantidade)
+from Item_Pedido
+
+select sum(valor) as somatoria
+from Item_Compra
+
+
+select count(*) as qtd
+from Cliente
+
+--group by 
+select cidade, sexo, count(*) qtd
+from Cliente
+group by cidade, sexo
+order by cidade
+
+
+select cod_pedido, sum(quantidade * valor) as total
+from Item_Pedido
+--where cod_pedido = 1
+group by cod_pedido
